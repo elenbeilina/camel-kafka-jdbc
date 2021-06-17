@@ -1,5 +1,5 @@
 docker run --tty \
-           --network camel-kafka-jdbc_camel-kafka-jdbc \
+           --network camel-kafka-jdbc_local \
            -v /Users/aqua-len/IdeaProjects/camel-kafka-jdbc/data/test-data-in.txt:/test-data-in.txt\
            confluentinc/cp-kafkacat \
            bash -c "

@@ -11,7 +11,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     networks:
-      - camel-kafka-jdbc
+      - local
 
   broker:
     image: confluentinc/cp-server:5.5.2
@@ -40,7 +40,7 @@ services:
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
     networks:
-      - camel-kafka-jdbc
+      - local
 
   control-center:
     image: confluentinc/cp-enterprise-control-center:5.5.2
@@ -60,7 +60,19 @@ services:
       CONFLUENT_METRICS_TOPIC_REPLICATION: 1
       PORT: 9021
     networks:
-      - camel-kafka-jdbc
+      - local
+
+  pg-db:
+    image: postgres:12
+    restart: always
+    container_name: pg-db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: adidas
+      POSTGRES_PASSWORD: pas
+    networks:
+      - local
 
 networks:
-  camel-kafka-jdbc:
+  local:

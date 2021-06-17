@@ -1,22 +1,23 @@
 package com.aqualen.camelkafkajdbc;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class KafkaToFileRoutBuilder extends RouteBuilder {
 
-    @Value("${data.folder.path}")
-    private String dataFolderPath;
+    private final SupermanProcessor supermanProcessor;
 
     @Override
     public void configure() {
-        from("kafka:main?brokers=localhost:9092")
-        .routeId("kafka-to-folder2")
+        from("kafka:main?brokers=localhost:9092" +
+                "&autoOffsetReset=earliest")
+                .routeId("kafka-to-postgres")
                 .tracing()
-                .log("${body}")
-                .transform(body().append("\n"))
-                .to(dataFolderPath + "/?fileName=test-data-out.txt&fileExist=Append");
+                .process(supermanProcessor)
+                .to("jpa:com.aqualen.camelkafkajdbc.Superhero")
+                .log("Inserted new superhero ${body}");
     }
 }
