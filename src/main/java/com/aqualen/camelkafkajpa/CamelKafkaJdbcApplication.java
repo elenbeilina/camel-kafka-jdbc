@@ -1,4 +1,4 @@
-package com.aqualen.camelkafkajdbc;
+package com.aqualen.camelkafkajpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

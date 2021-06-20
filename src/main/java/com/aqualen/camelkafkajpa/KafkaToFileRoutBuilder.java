@@ -1,4 +1,4 @@
-package com.aqualen.camelkafkajdbc;
+package com.aqualen.camelkafkajpa;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.camel.builder.RouteBuilder;

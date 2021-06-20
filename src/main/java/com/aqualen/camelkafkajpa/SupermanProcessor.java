@@ -1,4 +1,4 @@
-package com.aqualen.camelkafkajdbc;
+package com.aqualen.camelkafkajpa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;

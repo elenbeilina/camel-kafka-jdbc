@@ -1,4 +1,4 @@
-package com.aqualen.camelkafkajdbc;
+package com.aqualen.camelkafkajpa;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
