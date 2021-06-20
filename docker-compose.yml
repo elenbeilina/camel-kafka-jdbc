@@ -69,7 +69,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: adidas
+      POSTGRES_USER: super
       POSTGRES_PASSWORD: pas
     networks:
       - local
