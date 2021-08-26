@@ -13,6 +13,8 @@
     <properties>
         <spring-boot-version>2.5.0</spring-boot-version>
         <run.profiles>dev</run.profiles>
+        <sonar.organization>elenbeilina</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencyManagement>
         <dependencies>
